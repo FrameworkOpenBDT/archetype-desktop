@@ -1,0 +1,41 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<artifactId>openbdt.desktop</artifactId>
+	<packaging>pom</packaging>
+
+	<parent>
+		<groupId>io.openbdt</groupId>
+		<artifactId>openbdt</artifactId>
+		<version>2.0</version>
+	</parent>
+
+	<name>openbdt.desktop</name>
+	<url>http://openbdt.io/</url>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
+
+
+	<modules>
+		<module>openbdt.adapter.desktop</module>
+		<module>openbdt.desktop-starter</module>
+	</modules>
+
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>io.openbdt</groupId>
+				<artifactId>openbdt.adapter.desktop</artifactId>
+				<version>2.0</version>
+			</dependency>
+			<dependency>
+				<groupId>io.openbdt</groupId>
+				<artifactId>openbdt.desktop-starter</artifactId>
+				<version>2.0</version>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+</project>

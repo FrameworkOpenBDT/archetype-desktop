@@ -1,0 +1,138 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+	<modelVersion>4.0.0</modelVersion>
+
+	<artifactId>openbdt.adapter.desktop</artifactId>
+	<packaging>jar</packaging>
+
+	<name>openbdt.adapter.desktop</name>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<maven.compiler.source>1.8</maven.compiler.source>
+		<maven.compiler.target>1.8</maven.compiler.target>
+	</properties>
+
+	<parent>
+		<groupId>io.openbdt</groupId>
+		<artifactId>openbdt.desktop</artifactId>
+		<version>2.0</version>
+	</parent>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-simple</artifactId>
+			<version>1.7.25</version>
+			<scope>test</scope>
+			<exclusions>
+				<exclusion>
+					<groupId>org.slf4j</groupId>
+					<artifactId>slf4j-log4j12</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>log4j</groupId>
+					<artifactId>log4j</artifactId>
+				</exclusion>
+			</exclusions>
+
+		</dependency>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.11</version>
+		</dependency>
+		<dependency>
+			<groupId>com.github.2gis.winium</groupId>
+			<artifactId>winium-webdriver</artifactId>
+			<version>0.1.0-1</version>
+		</dependency>
+		<dependency>
+			<groupId>org.assertj</groupId>
+			<artifactId>assertj-core</artifactId>
+			<version>1.7.0</version>
+			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.seleniumhq.selenium</groupId>
+			<artifactId>selenium-server</artifactId>
+			<version>3.0.1</version>
+		</dependency>
+
+
+		<dependency>
+			<groupId>io.openbdt</groupId>
+			<artifactId>openbdt.core</artifactId>
+			<version>2.0</version>
+			<!-- <scope>system</scope> <systemPath>${basedir}/lib/openbdt.core.jar</systemPath> -->
+		</dependency>
+
+		<dependency>
+			<groupId>io.openbdt</groupId>
+			<artifactId>openbdt.plugin.maven</artifactId>
+			<version>2.0</version>
+			<!-- <scope>system</scope> <systemPath>${basedir}/lib/openbdt.plugin.maven-1.0.jar</systemPath> -->
+		</dependency>
+
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
+			<version>2.9.0</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.maven.plugins</groupId>
+			<artifactId>maven-archetype-plugin</artifactId>
+			<version>3.0.1</version>
+			<type>maven-plugin</type>
+		</dependency>
+
+	</dependencies>
+
+	<build>
+		<finalName>openbdt.adapter.desktop</finalName>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.3</version>
+				<configuration>
+					<encoding>${project.build.sourceEncoding}</encoding>
+					<source>${maven.compiler.source}</source>
+					<target>${maven.compiler.target}</target>
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>2.19.1</version>
+			</plugin>
+			<plugin>
+				<artifactId>maven-failsafe-plugin</artifactId>
+				<version>2.18.1</version>
+				<configuration>
+					<includes>
+						<include>**/*Test.java</include>
+						<include>**/*TestSuite.java</include>
+						<include>**/Test*.java</include>
+						<include>**/When*.java</include>
+					</includes>
+
+				</configuration>
+				<executions>
+					<execution>
+						<goals>
+							<goal>integration-test</goal>
+							<goal>verify</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+	<url>http://openbdt.io/</url>
+</project>
