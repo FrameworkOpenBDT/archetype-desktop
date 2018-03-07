@@ -6,13 +6,14 @@ package ${package}.steps.business;
 import static org.junit.Assert.assertTrue;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import org.springframework.test.context.ContextConfiguration;
 
 import io.openbdt.element.WindowScreenElement;
 import ${package}.pages.PageObjectClass;
-import net.serenitybdd.core.annotations.findby.By;
 
 @ContextConfiguration("/setup-spring.xml")
+@Component
 public class StepBusiness {
 
 	@Autowired
@@ -22,38 +23,27 @@ public class StepBusiness {
 	private WindowScreenElement viewElement;
 	
 	public void verificarAplicacao() {
-		assertTrue(getViewElement().isDisplayed(pageObject.getApplicationView()));
+		assertTrue(viewElement.isDisplayed(pageObject.getApplicationView()));
 	}
 	
-	public void clicarNoNumero(Integer num) {
-		getViewElement().click(getViewElement().findElement(By.id(String.format("num%dButton", num))));
+	public void inserirTexto(String texto) {
+		viewElement.sendText(pageObject.getAreaDeTexto(), texto);
 	}
 	
-	public void calcular() {
-		getViewElement().click(getPageObject().getCalcular());
+	public void clicarEmAjuda() {
+		viewElement.click(pageObject.getItemAjuda());
 	}
 	
-	public void clicarNoOperadorDe(String operador) {
-		getViewElement().click(getViewElement().findElement(By.id(String.format("%sButton", operador))));
+	public void clicarEmSobreBlocoDeNotas() {
+		viewElement.click(pageObject.getItemSobreBlocoNotas());
 	}
 	
-	public String obterResultado() {
-		return getViewElement().getText(getPageObject().getResult());
+	public String obterVersao() {
+		String version = viewElement.getText(pageObject.getVersao());
+		return version;
 	}
 	
-	public PageObjectClass getPageObject() {
-		return pageObject;
-	}
-
-	public void setPageObject(PageObjectClass pageObject) {
-		this.pageObject = pageObject;
-	}
-	
-	public WindowScreenElement getViewElement() {
-		return viewElement;
-	}
-
-	public void setViewElement(WindowScreenElement viewElement) {
-		this.viewElement = viewElement;
+	public void clicarEmOk() {
+		viewElement.click(pageObject.getButtonOk());
 	}
 }

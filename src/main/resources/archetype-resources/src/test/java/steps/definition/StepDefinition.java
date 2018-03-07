@@ -1,9 +1,5 @@
 package ${package}.steps.definition;
 
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
-import org.junit.Assert;
 import org.springframework.test.context.ContextConfiguration;
 
 import cucumber.api.java.en.And;
@@ -19,32 +15,33 @@ public class StepDefinition {
 	@Steps
 	StepBusiness stepB;
 	
-	@Given("^estou com a aplicação aberta$")
-	public void estou_com_a_aplicação_aberta() throws Throwable {
+	@Given("^estou com a aplicacao aberta$")
+	public void estou_com_a_aplicacao_aberta() throws Throwable {
 		stepB.verificarAplicacao();
 	}
-
-	@When("^clico sobre o numero \"([+-]?[0-9]*[.]?[0-9]+)\"$")
-	public void clico_sobre_o_numero(Integer num) throws Throwable {
-		stepB.clicarNoNumero(num);
+	
+	@When("^digito o texto \"([^\"]*)\"$")
+	public void digito_o_texto(String arg1) throws Throwable {
+		stepB.inserirTexto(arg1);
 	}
 
-	@And("^clico sobre o operador de \"([^\"]*)\"$")
-	public void clico_sobre_o_operador_de(String operador) throws Throwable {
-		stepB.clicarNoOperadorDe(operador);
+	@And("^clico em 'Ajuda'$")
+	public void clico_em_Ajuda() throws Throwable {
+	    stepB.clicarEmAjuda();
+	}
+
+	@And("^clico em 'Sobre o bloco de notas'$")
+	public void clico_em_Sobre_o_bloco_de_notas() throws Throwable {
+	    stepB.clicarEmSobreBlocoDeNotas();
+	}
+
+	@And("^e exibido a versao$")
+	public void e_exibido_a_versao() throws Throwable {
+	    System.out.println(String.format("Versao do notepad: %s", stepB.obterVersao()));
 	}
 	
-	@Then("^clico em calcular$")
-	public void clico_em_calcular() throws Throwable {
-		System.out.println(stepB.obterResultado());
-		stepB.calcular();
-	}
-
-	@Then("^e exibido o resultado \"([+-]?[0-9]*[.]?[0-9]+)\"$")
-	public void e_exibido_o_resultado(Integer resultado) throws Throwable {
-		Pattern pattern = Pattern.compile("^.*Display is ([+-]?[0-9]*[.]?[0-9]+).*$");
-		Matcher matcher = pattern.matcher(stepB.obterResultado());
-		if(matcher.matches())
-			Assert.assertTrue(matcher.group(1).equals(String.valueOf(resultado)));
+	@Then("^clico em ok$")
+	public void clico_em_ok() throws Throwable{
+		stepB.clicarEmOk();
 	}
 }
