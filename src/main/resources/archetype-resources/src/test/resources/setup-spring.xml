@@ -6,9 +6,7 @@
        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
 	<context:component-scan
-		base-package="${package}.setup* io.openbdt.run* io.openbdt.setup*" />
-
-	<bean class="${package}.setup.DesktopSetupImpl" id="desktopSetup" />
+		base-package="${package}* io.openbdt.run* io.openbdt.setup*" />
 
 	<bean class="io.openbdt.driver.DesktopDriver" id="desktopDriver"
 		scope="singleton"/>
@@ -27,9 +25,4 @@
 		<constructor-arg name="applicationView"
 			value="#{pageObject.getApplicationView()}" />
 	</bean>
-	<bean class="${package}.steps.business.StepBusiness" id="stepBusiness">
-		<property name="pageObject" ref="pageObject" />
-		<property name="viewElement" ref="viewElement" />
-	</bean>
-
 </beans>
