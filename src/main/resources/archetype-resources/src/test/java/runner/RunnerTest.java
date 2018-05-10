@@ -9,11 +9,11 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import io.openbdt.run.SuiteTestDesktopRunner;
+import io.openbdt.run.SuiteTestRunner;
 import io.openbdt.setup.Setup;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration("/setup-spring.xml")
+@ContextConfiguration("/context.xml")
 public class RunnerTest {
 	
 	@Autowired
@@ -21,7 +21,7 @@ public class RunnerTest {
 	private Setup setup;
 	
 	@Autowired
-	private SuiteTestDesktopRunner suiteTestRunner;
+	private SuiteTestRunner suiteTestRunner;
 	
 	@Test
 	public void test(){

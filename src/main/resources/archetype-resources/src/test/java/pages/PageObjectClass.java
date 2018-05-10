@@ -5,13 +5,15 @@ package ${package}.pages;
 
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
+import org.springframework.stereotype.Component;
 import org.springframework.test.context.ContextConfiguration;
 
 import io.openbdt.element.WindowElement;
 import io.openbdt.element.annotions.ApplicationView;
 import io.openbdt.mapping.WindowObject;
 
-@ContextConfiguration("/setup-spring.xml")
+@ContextConfiguration("/context.xml")
+@Component
 public class PageObjectClass extends WindowObject{
 
 	@ApplicationView(how=How.CLASS_NAME, using="Notepad")

@@ -10,4 +10,4 @@ Feature: Operação básica
   Then clico em ok
 Examples:
 	| text				|
-	|	Hello world		| 
+	|	In God We Trust	| 

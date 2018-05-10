@@ -12,7 +12,7 @@ import org.springframework.test.context.ContextConfiguration;
 import io.openbdt.element.WindowScreenElement;
 import ${package}.pages.PageObjectClass;
 
-@ContextConfiguration("/setup-spring.xml")
+@ContextConfiguration("/context.xml")
 @Component
 public class StepBusiness {
 

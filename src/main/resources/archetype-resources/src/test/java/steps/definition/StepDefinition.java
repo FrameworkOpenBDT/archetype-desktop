@@ -9,7 +9,7 @@ import cucumber.api.java.en.When;
 import ${package}.steps.business.StepBusiness;
 import net.thucydides.core.annotations.Steps;
 
-@ContextConfiguration("/setup-spring.xml")
+@ContextConfiguration("/context.xml")
 public class StepDefinition {
 
 	@Steps
