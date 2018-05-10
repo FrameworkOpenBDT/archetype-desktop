@@ -2,15 +2,15 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-
 	<groupId>io.openbdt</groupId>
 	<artifactId>archetype-desktop</artifactId>
-	<version>2.0</version>
+	<version>2.1</version>
 	<packaging>maven-archetype</packaging>
-
 	<name>archetype-desktop</name>
 	<url>http://openbdt.io/</url>
-
+	<properties>
+		<openbdt.version>2.1</openbdt.version>
+	</properties>
 	<build>
 		<extensions>
 			<extension>
@@ -19,7 +19,6 @@
 				<version>2.4</version>
 			</extension>
 		</extensions>
-
 		<pluginManagement>
 			<plugins>
 				<plugin>
@@ -41,7 +40,7 @@
 								<repositoryLayout>default</repositoryLayout>
 								<groupId>io.openbdt</groupId>
 								<artifactId>openbdt</artifactId>
-								<version>2.0</version>
+								<version>${openbdt.version}</version>
 								<packaging>jar</packaging>
 								<pomFile>${basedir}/lib/openbdt/pom.xml</pomFile>
 							</configuration>
@@ -54,11 +53,11 @@
 							<id>install-core</id>
 							<phase>install</phase>
 							<configuration>
-								<file>${basedir}/lib/openbdt-core/openbdt.core-2.0.jar</file>
+								<file>${basedir}/lib/openbdt-core/openbdt.core-${openbdt.version}.jar</file>
 								<repositoryLayout>default</repositoryLayout>
 								<groupId>io.openbdt</groupId>
 								<artifactId>openbdt.core</artifactId>
-								<version>2.0</version>
+								<version>${openbdt.version}</version>
 								<packaging>jar</packaging>
 								<pomFile>${basedir}/lib/openbdt-core/pom.xml</pomFile>
 							</configuration>
@@ -71,11 +70,11 @@
 							<id>install-report</id>
 							<phase>install</phase>
 							<configuration>
-								<file>${basedir}/lib/openbdt-report/openbdt.report-2.0.jar</file>
+								<file>${basedir}/lib/openbdt-report/openbdt.report-${openbdt.version}.jar</file>
 								<repositoryLayout>default</repositoryLayout>
 								<groupId>io.openbdt</groupId>
 								<artifactId>openbdt.report</artifactId>
-								<version>2.0</version>
+								<version>${openbdt.version}</version>
 								<packaging>jar</packaging>
 								<pomFile>${basedir}/lib/openbdt-report/pom.xml</pomFile>
 							</configuration>
@@ -88,11 +87,11 @@
 							<id>install-plugin-maven</id>
 							<phase>install</phase>
 							<configuration>
-								<file>${basedir}/lib/openbdt-plugin-maven/openbdt.plugin.maven-2.0.jar</file>
+								<file>${basedir}/lib/openbdt-plugin-maven/openbdt.plugin.maven-${openbdt.version}.jar</file>
 								<repositoryLayout>default</repositoryLayout>
 								<groupId>io.openbdt</groupId>
 								<artifactId>openbdt.plugin.maven</artifactId>
-								<version>2.0</version>
+								<version>${openbdt.version}</version>
 								<packaging>jar</packaging>
 								<pomFile>${basedir}/lib/openbdt-plugin-maven/pom.xml</pomFile>
 							</configuration>
@@ -109,7 +108,7 @@
 								<repositoryLayout>default</repositoryLayout>
 								<groupId>io.openbdt</groupId>
 								<artifactId>openbdt.desktop</artifactId>
-								<version>2.0</version>
+								<version>${openbdt.version}</version>
 								<packaging>jar</packaging>
 								<pomFile>${basedir}/lib/openbdt.desktop/pom.xml</pomFile>
 							</configuration>
@@ -117,16 +116,16 @@
 								<goal>install-file</goal>
 							</goals>
 						</execution>
-						<!-- ADAPTER.DESKTOP -->
+						<!-- ADAPTER.ADAPTER.DESKTOP -->
 						<execution>
 							<id>install-adapter-desktop</id>
 							<phase>install</phase>
 							<configuration>
-								<file>${basedir}/lib/openbdt-adapter-desktop/openbdt.adapter.desktop-2.0.jar</file>
+								<file>${basedir}/lib/openbdt-adapter-desktop/openbdt.adapter.desktop-${openbdt.version}.jar</file>
 								<repositoryLayout>default</repositoryLayout>
 								<groupId>io.openbdt</groupId>
 								<artifactId>openbdt.adapter.desktop</artifactId>
-								<version>2.0</version>
+								<version>${openbdt.version}</version>
 								<packaging>jar</packaging>
 								<pomFile>${basedir}/lib/openbdt-adapter-desktop/pom.xml</pomFile>
 							</configuration>
@@ -139,98 +138,13 @@
 							<id>install-openbdt.desktop-starter</id>
 							<phase>install</phase>
 							<configuration>
-								<file>${basedir}/lib/openbdt.desktop-starter/openbdt.desktop-starter-2.0.jar</file>
+								<file>${basedir}/lib/openbdt.desktop-starter/openbdt.desktop-starter-${openbdt.version}.jar</file>
 								<repositoryLayout>default</repositoryLayout>
 								<groupId>io.openbdt</groupId>
 								<artifactId>openbdt.desktop-starter</artifactId>
-								<version>2.0</version>
+								<version>${openbdt.version}</version>
 								<packaging>jar</packaging>
 								<pomFile>${basedir}/lib/openbdt.desktop-starter/pom.xml</pomFile>
-							</configuration>
-							<goals>
-								<goal>install-file</goal>
-							</goals>
-						</execution>
-						<!-- REPORT-PORTAL -->
-						<execution>
-							<id>install-report-portal</id>
-							<phase>install</phase>
-							<configuration>
-								<file>${basedir}/lib/report-portal/_remote.repositories</file>
-								<repositoryLayout>default</repositoryLayout>
-								<groupId>br.com.rsinet.reportportal</groupId>
-								<artifactId>report-portal</artifactId>
-								<version>1.0.0</version>
-								<packaging>jar</packaging>
-								<pomFile>${basedir}/lib/report-portal/pom.xml</pomFile>
-							</configuration>
-							<goals>
-								<goal>install-file</goal>
-							</goals>
-						</execution>
-						<!-- REPORT-PORTAL-ADAPTER-OPENBDT -->
-						<execution>
-							<id>install-report-portal-adapter-openbdt</id>
-							<phase>install</phase>
-							<configuration>
-								<file>${basedir}/lib/report-portal-adapter-openbdt/report-portal-adapter-openbdt-1.0.0.jar</file>
-								<repositoryLayout>default</repositoryLayout>
-								<groupId>br.com.rsinet.reportportal</groupId>
-								<artifactId>report-portal-adapter-openbdt</artifactId>
-								<version>1.0.0</version>
-								<packaging>jar</packaging>
-								<pomFile>${basedir}/lib/report-portal-adapter-openbdt/pom.xml</pomFile>
-							</configuration>
-							<goals>
-								<goal>install-file</goal>
-							</goals>
-						</execution>
-						<!-- REPORT-PORTAL-CLIENT -->
-						<execution>
-							<id>install-report-portal-client</id>
-							<phase>install</phase>
-							<configuration>
-								<file>${basedir}/lib/report-portal-client/report-portal-client-1.0.0.jar</file>
-								<repositoryLayout>default</repositoryLayout>
-								<groupId>br.com.rsinet.reportportal</groupId>
-								<artifactId>report-portal-client</artifactId>
-								<version>1.0.0</version>
-								<packaging>jar</packaging>
-								<pomFile>${basedir}/lib/report-portal-client/pom.xml</pomFile>
-							</configuration>
-							<goals>
-								<goal>install-file</goal>
-							</goals>
-						</execution>
-						<!-- REPORT-PORTAL-PLUGIN-MAVEN -->
-						<execution>
-							<id>install-report-portal-plugin-maven</id>
-							<phase>install</phase>
-							<configuration>
-								<file>${basedir}/lib/report-portal-plugin-maven/report-portal-plugin-maven-1.0.0.jar</file>
-								<repositoryLayout>default</repositoryLayout>
-								<groupId>br.com.rsinet.reportportal</groupId>
-								<artifactId>report-portal-plugin-maven</artifactId>
-								<version>1.0.0</version>
-								<packaging>jar</packaging>
-								<pomFile>${basedir}/lib/report-portal-plugin-maven/pom.xml</pomFile>
-							</configuration>
-							<goals>
-								<goal>install-file</goal>
-							</goals>
-						</execution>
-						<!-- REPORT-PORTAL-STORAGE-FILES-WEB -->
-						<execution>
-							<id>install-report-portal-storage-files-web</id>
-							<phase>install</phase>
-							<configuration>
-								<file>${basedir}/lib/report-portal-storage-files-web/report-portal-storage-files-web-1.0.0.war</file>
-								<repositoryLayout>default</repositoryLayout>
-								<groupId>br.com.rsinet.reportportal</groupId>
-								<artifactId>report-portal-storage-files-web</artifactId>
-								<version>1.0.0</version>
-								<packaging>jar</packaging>
-								<pomFile>${basedir}/lib/report-portal-storage-files-web/pom.xml</pomFile>
 							</configuration>
 							<goals>
 								<goal>install-file</goal>
