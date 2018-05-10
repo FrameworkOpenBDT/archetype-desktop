@@ -19,6 +19,7 @@ Inside the project folder that you already created, the file **thucydides.proper
 - Set the ***webdriver.provided.io.openbdt.driver.DesktopDriver.path*** to the winium driver binary location.
 - Set the ***webdriver.provided.io.openbdt.driver.DesktopDriver.port*** to the port where winium driver will be listening on.
 - Set the ***application.path*** to the location where the application to be tested is located
+- Set the ***window.application.<STRATEGY>*** refers to the main window of the application to be tested. For each strategy supported (id, xpath, class_name) a value must be set.
 
 - Set where serenity-bdd report will be saved changing the ***serenity.outputDirectory*** value to a folder location in your local file system (may not exist).
 
